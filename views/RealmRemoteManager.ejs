@@ -1,0 +1,35 @@
+
+<%
+Employee = {
+    name: 'Employee',
+    properties: {
+        empUsername: 'string?',
+        empFullName: 'string?',
+        empEmail: 'string?',
+        empPhone: 'string?',
+        empSkills: 'string?',
+        empDegree: 'string?',
+        empExp: 'string?',
+        empPassword: 'string?',
+        userId: 'string',
+        status: 'string?',
+
+    }
+}
+getAllEmployees = async function () {
+    Realm.open(global.currentSyncUser.createConfiguration({schema:[Employee]}))
+            .then((remoteRealm) => {
+
+                let itemResults = remoteRealm.objects('Employee');
+                itemResults.subscribe().addListener((sub, state) => {
+
+                })
+                console.log("result is =>"+itemResults.length)
+                for (let i = 0; i < itemResults.length; i++) {
+                    console.log("item =>"+i+" "+itemResults[i].empFullName)
+                }
+
+               return itemResults;
+            })
+}
+%>
