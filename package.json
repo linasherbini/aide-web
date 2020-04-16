@@ -24,6 +24,6 @@
   "devDependencies": {
     "fs-extra": "^7.0.1",
     "grunt-cache-bust": "^1.7.0",
-    "https-proxy-agent": "^2.2.1"
+    "https-proxy-agent": "^2.2.3"
   }
 }
